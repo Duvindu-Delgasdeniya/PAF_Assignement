@@ -73,7 +73,7 @@ public class ReviewAPI extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map paras = getParasMap(request);
 		
-		String output = ReviewObj.updatereview(paras.get("hidItemIDSave").toString(),
+		String output = ReviewObj.updatereview(paras.get("reviewID").toString(),
 		paras.get("projectCode").toString(),
 		paras.get("review").toString(),
 		paras.get("decision").toString());

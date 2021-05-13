@@ -32,7 +32,7 @@ public class Review {
 		}
 		
 		
-	public String insertreview (String code, String review, String decision)
+	public String insertreview (String projectCode, String review, String decision)
 	{
 		String output = "";
 		try
@@ -51,7 +51,7 @@ public class Review {
 			
 			// binding values
 			 preparedStmt.setInt(1, 0); 
-			 preparedStmt.setString(2, code); 
+			 preparedStmt.setString(2, projectCode); 
 			 preparedStmt.setString(3, review); 
 			 preparedStmt.setString(4, decision); 
 			// execute the statement
@@ -89,10 +89,8 @@ public class Review {
 				
 				// Prepare the html table to be displayed
 		        
-	            output = "<table border='1'><tr><th>Item Code</th>"
-	             +"<th>Item Name</th><th>Item Price</th>"
-	             + "<th>Item Description</th>"
-	             + "<th>Update</th><th>Remove</th></tr>";
+	            output = "<table border='1'><tr><th>project Code</th>"
+	             +"<th>review</th><th>decision</th><th>Update</th><th>Remove</th></tr>";
 		
 				String query = "select * from review";
 				
@@ -111,7 +109,7 @@ public class Review {
 				
 				// Add into the html table
 				output += "<tr><td><input id='hidItemIDUpdate' name='hidItemIDUpdate' type='hidden' value='" + reviewID
-				+ "'>" + projectCode + "</td>";
+						+ "'>" + projectCode + "</td>";
 				output += "<td>" + review + "</td>";
 				output += "<td>" + decision + "</td>";
 	           
@@ -141,7 +139,7 @@ public class Review {
 		}
 
 
-		public String updatereview(String ID, String code, String review, String decision)
+		public String updatereview(String reviewID, String projectCode, String review, String decision)
 		{
 				String output = "";
 				try
@@ -159,10 +157,10 @@ public class Review {
 						
 						PreparedStatement preparedStmt = con.prepareStatement(query);
 						// binding values
-						 preparedStmt.setString(1, code); 
+						 preparedStmt.setString(1, projectCode); 
 						 preparedStmt.setString(2, review); 
 						 preparedStmt.setString(3, decision); 
-						 preparedStmt.setInt(4, Integer.parseInt(ID)); 
+						 preparedStmt.setInt(4, Integer.parseInt(reviewID)); 
 						// execute the statement
 						preparedStmt.execute();
 						

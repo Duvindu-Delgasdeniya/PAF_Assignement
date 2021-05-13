@@ -14,7 +14,7 @@
 
 <link rel = "stylesheet" href = "Views/bootstrap.min.css">
 <script src = "Components/jquery-3.6.0.min.js"></script>
-<script src = "Components/items.js"></script>
+<script src = "Components/Review.js"></script>
 
 
 
@@ -27,18 +27,15 @@
 
 		<h1>Review Management</h1>
 		
-	<form id="formReview" name="formReview"  >
+	<form id="formItem" name="formItem"  >
 		project Code :
 		<input id="projectCode" name="projectCode" type="text" class="form-control form-control-sm"><br>
 		 Review :
 		<input id="review" name="review" type="text" class="form-control form-control-sm"><br> 
 		Decision :
 		<input id="decision" name="decision" type="text" class="form-control form-control-sm"><br>
-		
-		 Item description:
-		<input id="itemDesc" name="itemDesc" type="text" class="form-control form-control-sm"><br>
 		<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary">
-		<input type="hidden" id="hidItemIDSave" name="hidItemIDSave" value="">
+		<input type="hidden" id="reviewID" name="reviewID" value="">
 	</form>
     
     <div id="alertSuccess" class="alert alert-success"></div>
