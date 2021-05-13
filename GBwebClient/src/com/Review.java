@@ -98,7 +98,7 @@ public class Review {
 			
 			ResultSet rs = stmt.executeQuery(query);
 			
-			// iterate through the rows in the result set
+			// iterate through  rows in the result set
 			
 			while (rs.next())
 			{
