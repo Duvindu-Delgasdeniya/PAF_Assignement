@@ -70,7 +70,7 @@ public class ProductAPI extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map paras = getParasMap(request);
 		
-		String output = ProductObj.updateProduct(paras.get("hidItemIDSave").toString(),
+		String output = ProductObj.updateProduct(paras.get("productID").toString(),
 		paras.get("reviewID").toString());
 	
 

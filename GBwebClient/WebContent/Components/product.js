@@ -26,7 +26,7 @@ $(document).on("click", "#btnSave", function(event)
 	}
 	
 	// If valid------------------------
-	var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
+	var type = ($("#productID").val() == "") ? "POST" : "PUT";
 	$.ajax(
 	{
 	url : "ProductAPI",
@@ -65,18 +65,15 @@ function onItemSaveComplete(response, status)
 	$("#alertError").text("Unknown error while saving..");
 	$("#alertError").show();
 	}
-	$("#hidItemIDSave").val("");
+	$("#productID").val("");
 	$("#formItem")[0].reset();
 }
 
 
 $(document).on("click", ".btnUpdate", function(event)
 {
-	$("#hidItemIDSave").val($(this).data("itemid"));
-	$("#itemCode").val($(this).closest("tr").find('td:eq(0)').text());
-	$("#itemName").val($(this).closest("tr").find('td:eq(1)').text());
-	$("#itemPrice").val($(this).closest("tr").find('td:eq(2)').text());
-	$("#itemDesc").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#productID").val($(this).data("itemid"));
+	$("#reviewID").val($(this).closest("tr").find('td:eq(1)').text());
 })
 
 
@@ -84,9 +81,9 @@ $(document).on("click", ".btnRemove", function(event)
 {
 	$.ajax(
 	{
-	url : "ItemsAPI",
+	url : "ProductAPI",
 	type : "DELETE",
-	data : "itemID=" + $(this).data("itemid"),
+	data : "productID=" + $(this).data("itemid"),
 	dataType : "text",
 	complete : function(response, status)
 	{
@@ -132,37 +129,12 @@ function onItemDeleteComplete(response, status)
 // CLIENT-MODEL================================================================
 function validateItemForm()
 {
-// CODE
-	if ($("#itemCode").val().trim() == "")
-	{
-	return "Insert Item Code.";
-	}
-	// NAME
-	if ($("#itemName").val().trim() == "")
-	{
-	return "Insert Item Name.";
-}
-
-// PRICE-------------------------------
-if ($("#itemPrice").val().trim() == "")
-{
-return "Insert Item Price.";
-}
 
 // is numerical value
-var tmpPrice = $("#itemPrice").val().trim();
-if (!$.isNumeric(tmpPrice))
+var reviewId = $("#reviewID").val().trim();
+if (!$.isNumeric(reviewId))
 {
 return "Insert a numerical value for Item Price.";
-}
-
-// convert to decimal price
-$("#itemPrice").val(parseFloat(tmpPrice).toFixed(2));
-
-// DESCRIPTION------------------------
-if ($("#itemDesc").val().trim() == "")
-{
-return "Insert Item Description.";
 }
 return true;
 }/**

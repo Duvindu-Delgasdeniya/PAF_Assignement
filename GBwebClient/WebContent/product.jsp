@@ -16,7 +16,7 @@
 
 <link rel = "stylesheet" href = "Views/bootstrap.min.css">
 <script src = "Components/jquery-3.6.0.min.js"></script>
-<script src = "Components/Product.js"></script>
+<script src = "Components/product.js"></script>
 
 
 
@@ -32,11 +32,8 @@
 	<form id="formItem" name="formItem"  >
 		reviewID :
 		<input id="reviewID" name="reviewID" type="text" class="form-control form-control-sm"><br>
-
-		 Item description:
-		<input id="itemDesc" name="itemDesc" type="text" class="form-control form-control-sm"><br>
 		<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary">
-		<input type="hidden" id="hidItemIDSave" name="hidItemIDSave" value="">
+		<input type="hidden" id="productID" name="productID" value="">
 	</form>
     
     <div id="alertSuccess" class="alert alert-success"></div>
